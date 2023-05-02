@@ -16,6 +16,8 @@ node_L make_node (int value, node_L* next, node_L* prev){
     newNode->next = next;
     newNode->prev = prev;
 
+    return *newNode;
+
     // node_L node = make_node(value, next, prev);  //poaaibly incorrect??
 }
 
