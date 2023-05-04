@@ -83,6 +83,18 @@ void remove_node(struct node** list, int value) {
     }
 }
 
+void freeList (node_L** list) {
+    node_L* cur = *list;
+    node_L* next_node;
+
+    while (cur != NULL) {
+        next_node = cur->next;
+        free(cur);
+        cur = next_node;
+    }
+    *list = NULL;
+}
+
 
 //main
 int main(int argc, char** argv) {
@@ -99,4 +111,6 @@ int main(int argc, char** argv) {
 	remove_node(&list, 13);
 	remove_node(&list, 42);
 	print_list(list, 0);                // 50, 2
+
+    freeList(&list);
 }
